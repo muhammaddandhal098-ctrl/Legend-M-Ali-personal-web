@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legend M Ali - Personal Cloud Hub</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Legend M Ali</div>
+    <nav>
+      <a href="/index.html" class="active">Dashboard</a>
+      <a href="#projects-section">Projects</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Broadcast Message Alert -->
+    <div class="glass-card" id="notice-card" style="display:none;">
+      <h2>System Broadcast</h2>
+      <p id="notice-text"></p>
+    </div>
+
+    <!-- Personal Profile Info -->
+    <div class="grid-2">
+      <div class="glass-card">
+        <h2>Developer Profile</h2>
+        <p><strong>Owner Name:</strong> Legend M Ali</p>
+        <p><strong>Email:</strong> muhammaddandhal098@gmail.com</p>
+        <p><strong>WhatsApp:</strong> +92 303 9628506</p>
+        <p style="margin-top:0.8rem; color: #94a3b8; font-size:0.9rem;">
+          Android Developer | Web Designer | ESP32 Hardware Automation
+        </p>
+      </div>
+
+      <!-- System Notification Setup -->
+      <div class="glass-card">
+        <h2>Live System Alerts</h2>
+        <p style="margin-bottom:1rem; font-size:0.9rem; color:#94a3b8;">
+          Task reminders aur live updates ke liye notifications allow karein.
+        </p>
+        <button onclick="requestNotification()">Enable Push Notifications</button>
+      </div>
+    </div>
+
+    <!-- Voice Mail Recorder -->
+    <div class="glass-card">
+      <h2>Browser Voice Note Mailer</h2>
+      <p style="margin-bottom:1rem; font-size:0.9rem; color:#94a3b8;">
+        Directly record audio message and playback:
+      </p>
+      <div style="display: flex; gap: 10px;">
+        <button id="startRecBtn" onclick="startRecording()">Start Recording</button>
+        <button id="stopRecBtn" onclick="stopRecording()" disabled style="background:#ef4444; color:#fff;">Stop Recording</button>
+      </div>
+      <audio id="audioPlayback" controls style="width:100%; margin-top:1rem;"></audio>
+    </div>
+
+    <!-- Add New Project Section -->
+    <div class="glass-card" id="projects-section">
+      <h2>Add New Project (Live Backend)</h2>
+      <form onsubmit="saveProject(event)">
+        <input type="text" id="pTitle" placeholder="Project Name (e.g. Android Monitor)" required>
+        <input type="text" id="pCategory" placeholder="Category (Android Kotlin / Web / ESP32)" required>
+        <textarea id="pDesc" placeholder="Project description..." rows="3" required></textarea>
+        <button type="submit">Save Project to Database</button>
+      </form>
+    </div>
+
+    <!-- Project List -->
+    <div class="glass-card">
+      <h2>Legend M Ali Projects</h2>
+      <div id="projectsGrid" class="grid-2">
+        <!-- Projects will load dynamically from Backend -->
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 Legend M Ali | All-in-One Cloud Hub
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
